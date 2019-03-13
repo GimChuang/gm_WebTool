@@ -10,6 +10,9 @@ public class WebTool : MonoBehaviour
 
     public string bodyKey = "upload";
     public string mimeType = "image/png";
+
+    [Space]
+    public bool needToAppendURLPrefix;
     public string myUrlPrefix = "http://139.162.14.162:3027";
     JsonData jsonData;
 
@@ -65,7 +68,8 @@ public class WebTool : MonoBehaviour
                 {
                     uploadSuccess = true;
 
-                    //photoUrl = myUrlPrefix + parsedUrl;
+                    if(needToAppendURLPrefix)
+                        photoUrl = myUrlPrefix + parsedUrl;
                     photoUrl = parsedUrl;
                     Debug.Log(photoUrl);
                 }
